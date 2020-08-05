@@ -88,7 +88,8 @@ public class MutantServiceImp implements MutantService {
                 result = true;
             }
             long startSave = System.currentTimeMillis();
-            repository.save(new ResultDna(dna, result));
+            persitenceServ.persistDnaResult(dna, result);
+//            repository.save(new ResultDna(dna, result));
             LOGGER.info("Save sync Tiempo transcurrido: {} Countfinal {}", (System.currentTimeMillis() - startSave), countDnaFinal);
             return result;
         }

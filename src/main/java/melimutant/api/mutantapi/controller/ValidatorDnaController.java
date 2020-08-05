@@ -25,8 +25,6 @@ public class ValidatorDnaController {
     @Autowired
     private MutantService service;
     HttpHeaders headers = new HttpHeaders();
-
-
     @PostMapping("/mutantsync")
     public ResponseEntity<?> isMutant(@RequestBody String body) {
 
@@ -44,8 +42,7 @@ public class ValidatorDnaController {
         }
 
     }
-    
-    
+
     @PostMapping("/mutant")
     public ResponseEntity<?> isMutantAsync(@RequestBody String body) {
 
@@ -63,7 +60,5 @@ public class ValidatorDnaController {
         }
 
     }
-
-
 
 }
