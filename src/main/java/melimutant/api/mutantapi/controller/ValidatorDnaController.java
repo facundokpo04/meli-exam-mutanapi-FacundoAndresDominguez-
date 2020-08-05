@@ -27,7 +27,7 @@ public class ValidatorDnaController {
     HttpHeaders headers = new HttpHeaders();
 
 
-    @PostMapping("/mutant")
+    @PostMapping("/mutantsync")
     public ResponseEntity<?> isMutant(@RequestBody String body) {
 
         JSONObject jsonBody = new JSONObject(body);
@@ -46,7 +46,7 @@ public class ValidatorDnaController {
     }
     
     
-    @PostMapping("/mutantasync")
+    @PostMapping("/mutant")
     public ResponseEntity<?> isMutantAsync(@RequestBody String body) {
 
         JSONObject jsonBody = new JSONObject(body);

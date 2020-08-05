@@ -60,32 +60,30 @@ public class MutantServiceImp implements MutantService {
 
         } else {
             countDnaFinal = utilsDna.countMachtHorizontal(matrixDna);
-           
+
+            if (countDnaFinal < 2) {
+                startDiag = System.currentTimeMillis();
+                matrixDnaChar = utils.stringArrayToCharMatrix(matrixDna);
+                countDnaFinal += utilsDna.countMachtVertical(matrixDnaChar);
+            } //verificamos las diagonales
+            if (countDnaFinal < 2) {
+                //Generamos matriz de char
+
+                countDnaFinal += utilsDna.countMachtDiagonalSup(matrixDnaChar);
 
                 if (countDnaFinal < 2) {
-                    startDiag = System.currentTimeMillis();
-                    matrixDnaChar = utils.stringArrayToCharMatrix(matrixDna);
-
-                    countDnaFinal += utilsDna.countMachtVertical(matrixDnaChar);
-                } //verificamos las diagonales
-                if (countDnaFinal < 2) {
-                    //Generamos matriz de char
-
-                    countDnaFinal += utilsDna.countMachtDiagonalSup(matrixDnaChar);
-
-                    if (countDnaFinal < 2) {
-                        countDnaFinal += utilsDna.countMachtDiagonalInf(matrixDnaChar);
-                    }
-                    if (countDnaFinal < 2) {
-                        countDnaFinal += utilsDna.countMachtDiagonalSupInv(matrixDnaChar);
-                    }
-                    if (countDnaFinal < 2) {
-                        countDnaFinal += utilsDna.countMachtDiagonalInfInv(matrixDnaChar);
-                    }
-
+                    countDnaFinal += utilsDna.countMachtDiagonalInf(matrixDnaChar);
                 }
-                LOGGER.info("Sync Diag Tiempo: {}", (System.currentTimeMillis() - startDiag));
-          
+                if (countDnaFinal < 2) {
+                    countDnaFinal += utilsDna.countMachtDiagonalSupInv(matrixDnaChar);
+                }
+                if (countDnaFinal < 2) {
+                    countDnaFinal += utilsDna.countMachtDiagonalInfInv(matrixDnaChar);
+                }
+
+            }
+            LOGGER.info("Sync Diag Tiempo: {}", (System.currentTimeMillis() - startDiag));
+
             if (countDnaFinal > 1) {
                 result = true;
             }
@@ -116,20 +114,22 @@ public class MutantServiceImp implements MutantService {
         } else {
             countDnaFinal = utilsDna.countMachtHorizontal(matrixDna);
             startDiag = System.currentTimeMillis();
-            matrixDnaChar = utils.stringArrayToCharMatrix(matrixDna);
-
             //diagonales y verticales todas juntas
             if (countDnaFinal < 2) {
-                //Generamos matriz de char
+                startDiag = System.currentTimeMillis();
+                matrixDnaChar = utils.stringArrayToCharMatrix(matrixDna);
+                countDnaFinal += utilsDna.countMachtVertical(matrixDnaChar);
+            } //verificamos las diagonales
+            //Generamos matriz de char
 
+            if (countDnaFinal < 2) {
                 try {
 
-                    CompletableFuture<Integer> future0 = utilsasync.countMachtVertical(matrixDnaChar);
                     CompletableFuture<Integer> future1 = utilsasync.countMachtDiagonalSup(matrixDnaChar);
                     CompletableFuture<Integer> future2 = utilsasync.countMachtDiagonalInf(matrixDnaChar);
                     CompletableFuture<Integer> future3 = utilsasync.countMachtDiagonalSupInv(matrixDnaChar);
                     CompletableFuture<Integer> future4 = utilsasync.countMachtDiagonalInfInv(matrixDnaChar);
-                    countDnaFinal = future0.get() + future1.get() + future2.get() + future3.get() + future4.get();
+                    countDnaFinal = future1.get() + future2.get() + future3.get() + future4.get();
 
                     LOGGER.info("Async Diag Tiempo: {} Countfinal {} ", (System.currentTimeMillis() - startDiag), countDnaFinal);
 

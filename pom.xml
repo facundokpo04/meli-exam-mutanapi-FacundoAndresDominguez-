@@ -11,7 +11,7 @@
     <groupId>melimutant.api</groupId>
     <artifactId>mutantapi</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>mutantapihilos</name>
+    <name>mutantapihilosgit</name>
     <description>Meli Exam project for Spring Boot</description>
 
     <properties>
