@@ -43,7 +43,7 @@ public class UtilsDna {
 
   
 
-    public int countMachtVertical(char[][] matrix) throws InterruptedException {
+    public int countMachtVertical(char[][] matrix) {
         String result;
         int count = 0;
         int countmacht = 0;
@@ -56,12 +56,11 @@ public class UtilsDna {
             countmacht += countMatcherDna(result, countmacht);
 
         }
-        Thread.sleep(1000);
         return countmacht;
 
     }
 
-    public int countMachtDiagonalSup(char[][] matrix) throws InterruptedException {
+    public int countMachtDiagonalSup(char[][] matrix)  {
 
         String result;
         int count = 0;
@@ -79,12 +78,12 @@ public class UtilsDna {
             stop = result.length() == 4 || countmacht > 1;
 
         }
-        Thread.sleep(1000);
+
         return countmacht;
 
     }
 
-    public int countMachtDiagonalInf(char[][] matrix) throws InterruptedException {
+    public int countMachtDiagonalInf(char[][] matrix)  {
 
         String result;
         int count = 0;
@@ -103,12 +102,12 @@ public class UtilsDna {
             stop = result.length() == 4 || countmacht > 1;
 
         }
-        Thread.sleep(1000);
+
         return countmacht;
 
     }
 
-    public int countMachtDiagonalSupInv(char[][] matrix) throws InterruptedException {
+    public int countMachtDiagonalSupInv(char[][] matrix)  {
 
         String result;
         int count = 0;
@@ -125,13 +124,12 @@ public class UtilsDna {
             stop = result.length() == 4 || countmacht > 1;
 
         }
-        Thread.sleep(1000);
 
         return countmacht;
 
     }
 
-    public int countMachtDiagonalInfInv(char[][] matrix) throws InterruptedException {
+    public int countMachtDiagonalInfInv(char[][] matrix)  {
 
         String result;
         int count = 0;
@@ -148,7 +146,7 @@ public class UtilsDna {
             countmacht = countMatcherDna(result, countmacht);
             stop = result.length() == 4 || countmacht > 1;
         }
-        Thread.sleep(1000);
+      
 
         return countmacht;
 
@@ -157,7 +155,7 @@ public class UtilsDna {
     private int countMatcherDna(String adn, int count) {
 
         Matcher matcher = r.matcher(adn);
-        while (matcher.find() && count<2) {
+        while (matcher.find()) {
             System.out.println("Genoma Encontrado: " + matcher.group());
             count++;
 //            matcher.end();

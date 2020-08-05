@@ -23,7 +23,7 @@ public class UtilsAsync {
     private static final Pattern r = Pattern.compile(VALID_ADNMUTANT_PATTERN);
 
     @Async
-    public CompletableFuture<Integer> countMachtVertical(char[][] matrix) throws InterruptedException {
+    public CompletableFuture<Integer> countMachtVertical(char[][] matrix) {
         String result;
         int count = 0;
         int countmacht = 0;
@@ -36,12 +36,12 @@ public class UtilsAsync {
             countmacht += countMatcherDna(result, countmacht);
 
         }
-        Thread.sleep(1000);
+
         return CompletableFuture.completedFuture(countmacht);
     }
 
     @Async
-    public CompletableFuture<Integer> countMachtDiagonalSup(char[][] matrix) throws InterruptedException {
+    public CompletableFuture<Integer> countMachtDiagonalSup(char[][] matrix){
 
         String result;
         int count = 0;
@@ -59,13 +59,12 @@ public class UtilsAsync {
             stop = result.length() == 4 || countmacht > 1;
 
         }
-        Thread.sleep(1000);
 
         return CompletableFuture.completedFuture(countmacht);
     }
 
     @Async
-    public CompletableFuture<Integer> countMachtDiagonalInf(char[][] matrix) throws InterruptedException {
+    public CompletableFuture<Integer> countMachtDiagonalInf(char[][] matrix) {
 
         String result;
         int count = 0;
@@ -84,14 +83,14 @@ public class UtilsAsync {
             stop = result.length() == 4 || countmacht > 1;
 
         }
-        Thread.sleep(1000);
+
 
         return CompletableFuture.completedFuture(countmacht);
 
     }
 
     @Async
-    public CompletableFuture<Integer> countMachtDiagonalSupInv(char[][] matrix) throws InterruptedException {
+    public CompletableFuture<Integer> countMachtDiagonalSupInv(char[][] matrix)  {
 
         String result;
         int count = 0;
@@ -109,13 +108,12 @@ public class UtilsAsync {
 
         }
 
-        Thread.sleep(1000);
         return CompletableFuture.completedFuture(countmacht);
 
     }
 
     @Async
-    public CompletableFuture<Integer> countMachtDiagonalInfInv(char[][] matrix) throws InterruptedException {
+    public CompletableFuture<Integer> countMachtDiagonalInfInv(char[][] matrix) {
 
         String result;
         int count = 0;
@@ -132,7 +130,6 @@ public class UtilsAsync {
             countmacht = countMatcherDna(result, countmacht);
             stop = result.length() == 4 || countmacht > 1;
         }
-        Thread.sleep(1000);
 
         return CompletableFuture.completedFuture(countmacht);
 
@@ -141,10 +138,10 @@ public class UtilsAsync {
     private int countMatcherDna(String adn, int count) {
 
         Matcher matcher = r.matcher(adn);
-        while (matcher.find() && count<2) {
+        while (matcher.find()) {
             System.out.println("Genoma Encontrado: " + matcher.group());
             count++;
-            
+
 //            matcher.end();
         }
         return count;

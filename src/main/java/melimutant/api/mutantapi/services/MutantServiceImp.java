@@ -42,7 +42,7 @@ public class MutantServiceImp implements MutantService {
     private PersistenceService persitenceServ;
 
     @Override
-    public boolean isMutant(JSONObject body) throws JSONException, InterruptedException {
+    public boolean isMutant(JSONObject body) throws JSONException {
         final long start = System.currentTimeMillis();
         long startDiag = 0l;
         String dna = utils.generateJsonString(body);
@@ -60,32 +60,38 @@ public class MutantServiceImp implements MutantService {
 
         } else {
             countDnaFinal = utilsDna.countMachtHorizontal(matrixDna);
-            if (countDnaFinal < 2) {
-                startDiag = System.currentTimeMillis();
-                matrixDnaChar = utils.stringArrayToCharMatrix(matrixDna);
-                countDnaFinal += utilsDna.countMachtVertical(matrixDnaChar);
-            } //verificamos las diagonales
-            if (countDnaFinal < 2) {
-                //Generamos matriz de char
+           
 
-                countDnaFinal += utilsDna.countMachtDiagonalSup(matrixDnaChar);
                 if (countDnaFinal < 2) {
-                    countDnaFinal += utilsDna.countMachtDiagonalInf(matrixDnaChar);
-                }
+                    startDiag = System.currentTimeMillis();
+                    matrixDnaChar = utils.stringArrayToCharMatrix(matrixDna);
+
+                    countDnaFinal += utilsDna.countMachtVertical(matrixDnaChar);
+                } //verificamos las diagonales
                 if (countDnaFinal < 2) {
-                    countDnaFinal += utilsDna.countMachtDiagonalSupInv(matrixDnaChar);
-                }
-                if (countDnaFinal < 2) {
-                    countDnaFinal += utilsDna.countMachtDiagonalInfInv(matrixDnaChar);
+                    //Generamos matriz de char
+
+                    countDnaFinal += utilsDna.countMachtDiagonalSup(matrixDnaChar);
+
+                    if (countDnaFinal < 2) {
+                        countDnaFinal += utilsDna.countMachtDiagonalInf(matrixDnaChar);
+                    }
+                    if (countDnaFinal < 2) {
+                        countDnaFinal += utilsDna.countMachtDiagonalSupInv(matrixDnaChar);
+                    }
+                    if (countDnaFinal < 2) {
+                        countDnaFinal += utilsDna.countMachtDiagonalInfInv(matrixDnaChar);
+                    }
+
                 }
                 LOGGER.info("Sync Diag Tiempo: {}", (System.currentTimeMillis() - startDiag));
-
-            }
+          
             if (countDnaFinal > 1) {
                 result = true;
             }
+            long startSave = System.currentTimeMillis();
             repository.save(new ResultDna(dna, result));
-            LOGGER.info("Save sync Tiempo transcurrido: {} Countfinal {}", (System.currentTimeMillis() - start), countDnaFinal);
+            LOGGER.info("Save sync Tiempo transcurrido: {} Countfinal {}", (System.currentTimeMillis() - startSave), countDnaFinal);
             return result;
         }
     }
@@ -128,15 +134,17 @@ public class MutantServiceImp implements MutantService {
                     LOGGER.info("Async Diag Tiempo: {} Countfinal {} ", (System.currentTimeMillis() - startDiag), countDnaFinal);
 
                 } catch (InterruptedException ex) {
-                    LOGGER.info("Errro en algun futuo");
+                    throw new JSONException(ex.getMessage());
                 } catch (ExecutionException ex) {
-                    LOGGER.info("Errro en algun futuo");
+                    throw new JSONException(ex.getMessage());
                 }
 
             }
             if (countDnaFinal > 1) {
                 result = true;
+
             }
+            long startSave = System.currentTimeMillis();
             try {
 
                 persitenceServ.persistDnaResult(dna, result);
@@ -145,7 +153,7 @@ public class MutantServiceImp implements MutantService {
                 LOGGER.error("Error al Persistir dna:  {} error {}", dna, e.getMessage());
 
             }
-            LOGGER.info("Save Async Tiempo transcurrido: {}", (System.currentTimeMillis() - start));
+            LOGGER.info("Save Async Tiempo transcurrido: {}", (System.currentTimeMillis() - startSave));
         }
 
         return result;
@@ -156,8 +164,5 @@ public class MutantServiceImp implements MutantService {
         utils.generateJsonString(body);
         return utils.validateArray(utils.generateJsonArray(body));
     }
-
- 
-
 
 }
