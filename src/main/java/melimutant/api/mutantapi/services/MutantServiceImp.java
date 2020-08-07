@@ -5,10 +5,8 @@
  */
 package melimutant.api.mutantapi.services;
 
-import java.util.List;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
-import java.util.logging.Level;
 import melimutant.api.mutantapi.entity.ResultDna;
 import melimutant.api.mutantapi.utils.Utils;
 import melimutant.api.mutantapi.utils.UtilsAsync;
@@ -38,8 +36,13 @@ public class MutantServiceImp implements MutantService {
 
     @Autowired
     private ResultDnaRepository repository;
-    @Autowired
+
     private PersistenceService persitenceServ;
+
+    @Autowired
+    public MutantServiceImp(PersistenceService persistenceService) {
+        this.persitenceServ = persistenceService;
+    }
 
     @Override
     public boolean isMutant(JSONObject body) throws JSONException {

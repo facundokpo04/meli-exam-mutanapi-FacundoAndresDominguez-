@@ -56,6 +56,7 @@ public class ResultDna implements Serializable {
         return test_result;
     }
 
+    
     public void setTest_result(boolean test_result) {
         this.test_result = test_result;
     }
