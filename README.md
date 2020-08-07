@@ -1,8 +1,3 @@
-# meli-exam-mutanapi-FacundoAndresDominguez
-
-# meli-exam-mutanapi-FacundoAndresDominguez
-
-
 
 <h1>Examen Mercado Libre Facundo Andrés Domínguez</h1>
 
