@@ -42,42 +42,46 @@ public class TestCase {
 	public static final String[] DNA_HUMAN_ONE = {"ATGCGA","CAGTGC","TTATTT","AGACGG","GCGTCA","TCACTG"};
 	public static final String[] DNA_HUMAN_TWO = {"ATGCGA","CAGTGC","TTATTT","AGACGG","TCGTCA","TCACTG"};
 	
-	//Lineas DNA para probar si hay secuencias mutantes o no.
-	public static final String DNA_MUTANT_LINE_ONE 			= "AAAACA";
-	public static final String DNA_MUTANT_LINE_TWO 			= "ATTTTA";
-	public static final String DNA_MUTANT_LINE_THREE 		= "GGGGCA";
-	public static final String DNA_MUTANT_LINE_FOUR 		= "ATCCCC";
-	public static final String DNA_NO_MUTANT_LINE_ONE	 	= "ATGCCA";
-	public static final String DNA_NO_MUTANT_LINE_TWO 		= "CGTACA";
-	public static final String DNA_NO_MUTANT_LINE_THREE 	= "CCCTTT";
 	
-	//DNAs para probar si la diagonal tiene o no secuencias mutantes
-	public static final String[] DNA_MUTANT_DIAGONAL_ONE 		= {"ATGCGA","CAGTGC","TTATGT","AGAAGG","CCCCTA","TCACTG"};
-	public static final String[] DNA_MUTANT_DIAGONAL_TWO 		= {"TTGCGA","CTGTGC","TTTTGT","AGATGG","CCCCTA","TCACTG"};
-	public static final String[] DNA_MUTANT_DIAGONAL_THREE 		= {"CTGCGA","CCGTGC","TTCTGT","AGACGG","CCCCTA","TCACTG"};
-	public static final String[] DNA_MUTANT_DIAGONAL_FOUR 		= {"GTGCGA","CGGTGC","TTGTGT","AGAGGG","CCCCTA","TCACTG"};
-	public static final String[] DNA_NO_MUTANT_DIAGONAL_ONE 	= {"GTGCGA","CAGTGC","TTATGT","AGAAGG","CCCCTA","TCACTG"};
-	public static final String[] DNA_NO_MUTANT_DIAGONAL_TWO 	= {"CTGCGA","CTGTGC","TTTTGT","AGATGG","CCCCGA","TCACTG"};
-	public static final String[] DNA_NO_MUTANT_DIAGONAL_THREE 	= {"TTGCGA","CCGTGC","TTCTGT","AGACGG","CCCCTA","TCACTG"};
-	public static final String[] DNA_NO_MUTANT_DIAGONAL_FOUR 	= {"ATGCGA","CGGTGC","TTGTGT","AGAGGG","CCCCTA","TCACTG"};
-	
-	//DNAs para probar el metodo DNAToUpperCase
-	public static final String[] DNA_WITH_LOWERCASE_CHARS_ONE 				= {"AtGcGa","cagTGC","TTAtgt","AgaaGG","Ccccta","tcactg"};
-	public static final String[] DNA_WITH_LOWERCASE_CHARS_TO_UPPER_ONE 		= {"ATGCGA","CAGTGC","TTATGT","AGAAGG","CCCCTA","TCACTG"};
-	public static final String[] DNA_WITH_LOWERCASE_CHARS_TWO 				= {"TTGCGA","CTGTGC","ttttgt","AGATGG","CCCCTA","TCACTG"};
-	public static final String[] DNA_WITH_LOWERCASE_CHARS_TO_UPPER_TWO 		= {"TTGCGA","CTGTGC","TTTTGT","AGATGG","CCCCTA","TCACTG"};
-	public static final String[] DNA_WITH_LOWERCASE_CHARS_THREE				= {"ctgcga","ccgtgc","ttctgt","agacgg","ccccta","tcactg"};
-	public static final String[] DNA_WITH_LOWERCASE_CHARS_TO_UPPER_THREE	= {"CTGCGA","CCGTGC","TTCTGT","AGACGG","CCCCTA","TCACTG"};
-	
+
 	//DNAs para probar si hay o no filas con secuencias mutantes
 	public static final String[] DNA_WITH_NO_MUTANT_ROW 				= {"ATGCGA","CAGTGC","TTATGT","AGAAGG","CGCCTA","TCACTG"};
 	public static final String[] DNA_WITH_ONE_MUTANT_ROW 				= {"ATGCGA","CAGTGC","TTATGT","AGAAGG","CCCCTA","TCACTG"};
 	public static final String[] DNA_WITH_TWO_MUTANT_ROW 				= {"ATGGGG","CAGTGC","TTATGT","AGAAGG","CCCCTA","TCACTG"};
-	/*Mas de dos*/public static final String[] DNA_WITH_MORE_MUTANT_ROW = {"ATGGGG","CAGTGC","TTATGT","CCCCGG","CCCCTA","TCACTG"};
+	/*Mas de dos*/
+        public static final String[] DNA_WITH_MORE_MUTANT_ROW = {"ATGGGG","CAGTGC","TTATGT","CCCCGG","CCCCTA","TCACTG"};
 	
 	//DNAs para probar si hay o no columnas con secuencias mutantes
 	public static final String[] DNA_WITH_NO_MUTANT_COLUMN 					= {"ATGCGA","CAGTGC","TTATAT","AGAAGG","CCCCTA","TCACTG"};
-	public static final String[] DNA_WITH_ONE_MUTANT_COLUMN					= {"ATGCGA","CAGTGC","TTATGT","AGAAGG","CCCCTA","TCACTG"};
-	public static final String[] DNA_WITH_TWO_MUTANT_COLUMN					= {"ATGCGA","CAGTGC","CTATGT","CGAAGG","CCCCTA","TCACTG"};
-	/*Mas de dos*/public static final String[] DNA_WITH_MORE_MUTANT_COLUMN	= {"ATGCGA","CAGTGC","CTATGT","CGAAGG","CCACTA","TCACTG"};
+	public static final String[] DNA_WITH_ONE_MUTANT_COLUMN					= {"ATGCGC","CAGTGC","TTATGG","AGAAGC","CCCCTA","CCCCTA"};
+	public static final String[] DNA_WITH_TWO_MUTANT_COLUMN					= {"ATGCGC","CAGTGC","TTATGC","AGAAGC","CCCCTA","CCCCTA"};
+        public static final String[] DNA_WITH_ONE_MUTANT_COLUMN2= {"ACCC","AGGG","ACCC","AAAA"};
+	/*Mas de dos*/
+        public static final String[] DNA_WITH_MORE_MUTANT_COLUMN	= {"ATGCGC","CAGTGC","TTATGC","AGAAGC","CCACTA","CCACTA"};
+        
+        //DNAs para probar si hay o no digonal superior con secuencias mutantes
+	public static final String[] DNA_WITH_NO_MUTANT_DIAGSUP 				= {"CATACT","CAATAA","CATTAC","ATCTCT","TCTCAT","ATCCAT"};
+	public static final String[] DNA_WITH_ONE_MUTANT_DIAGSUP				= {"CATACT","CAATAA","CATTTC","ATCTCT","TCTCAT","ATCCAT"};
+	public static final String[] DNA_WITH_TWO_MUTANT_DIAGSUP				= {"CATACT","CACTAA","CATCTC","ATCTCT","TCTCAC","ATCCAT"};
+        /*Mas de dos*/
+        public static final String[] DNA_WITH_MORE_MUTANT_DIAGSUP={"CATACT","CACTAA","CATCTC","ATCTCT","TCTCTC","ATCCAT"};
+        
+        //DNAs para probar si hay o no digonal inferior con secuencias mutantes
+	public static final String[] DNA_WITH_NO_MUTANT_DIAGINF	= {"CATACT","CACTAA","CATCTC","ATCTCT","TCTCTC","ATCCAT"};
+	public static final String[] DNA_WITH_ONE_MUTANT_DIAGINF= {"CATACT","CACTAA","TATCTC","ATCTCT","TCTCTC","ATCTAT"};
+	public static final String[] DNA_WITH_TWO_MUTANT_DIAGINF= {"CATACT","CACTAA","TCTCTC","ATCTCT","TCTCTC","ATCTCT"};
+        
+        //DNAs para probar si hay o no digonal superior invertida con secuencias mutantes
+	public static final String[] DNA_WITH_NO_MUTANT_DIAGSUPINV= {"CATACT","CACTAA","CACCTC","ATCTCT","TCTCTC","ATCCAT"};
+	public static final String[] DNA_WITH_ONE_MUTANT_DIAGSUPINV= {"CATACT","CACCAA","CACCTC","ACCTCT","TCTCTC","ATCCAT"};
+	public static final String[] DNA_WITH_TWO_MUTANT_DIAGSUPINV= {"CATACT","CAACAA","CACCTC","ACCTCT","TCTCTC","ATCCAT"};
+        /*Mas de dos*/
+        public static final String[] DNA_WITH_MORE_MUTANT_DIAGSUPINV={"CATACT","CAACCA","CACCTC","ACCTCT","TCTCTC","ATCCAT"};
+        
+        //DNAs para probar si hay o no digonal inferior inv con secuencias mutantes
+	public static final String[] DNA_WITH_NO_MUTANT_DIAGINFINV	= {"CATACT","CACTAA","TCTCTC","ATCACT","TCTTTC","ATCTCT"};
+	public static final String[] DNA_WITH_ONE_MUTANT_DIAGINFINV= {"ATACT","CACTAA","TCTCTC","ATCACT","TCTCTC","ATCTCT"};
+	public static final String[] DNA_WITH_TWO_MUTANT_DIAGINFINV= {"CATACT","CACTAA","TCTCTC","ATCTCT","TCTCTC","ATCTCT"};
+        
 }
+

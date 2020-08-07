@@ -8,7 +8,6 @@ package melimutant.api.mutantapi.utils;
 import java.util.concurrent.CompletableFuture;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import org.apache.tomcat.jni.Time;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 
@@ -139,10 +138,7 @@ public class UtilsAsync {
 
         Matcher matcher = r.matcher(adn);
         while (matcher.find()) {
-            System.out.println("Genoma Encontrado: " + matcher.group());
             count++;
-
-//            matcher.end();
         }
         return count;
     }

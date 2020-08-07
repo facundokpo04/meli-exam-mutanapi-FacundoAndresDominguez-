@@ -5,6 +5,7 @@
  */
 package melimutant.api.mutantapi.entity;
 
+
 import java.io.Serializable;
 import javax.persistence.*;
 
@@ -15,15 +16,13 @@ import javax.persistence.*;
 @Entity
 @Table(name = "result_dna",
         indexes = {
-            @Index(name = "indx_test_dna", columnList ="test_dna", unique = true),})
+            @Index(name = "indx_test_dna", columnList = "test_dna", unique = true),})
 public class ResultDna implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int test_id;
-
-    @Column(name="test_dna",unique = true)
-
+    @Column(name = "test_dna", unique = true)
     private String test_dna;
 
     private boolean test_result;
@@ -56,7 +55,6 @@ public class ResultDna implements Serializable {
         return test_result;
     }
 
-    
     public void setTest_result(boolean test_result) {
         this.test_result = test_result;
     }

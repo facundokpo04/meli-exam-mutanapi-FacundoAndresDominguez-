@@ -2,13 +2,11 @@
 /Users/facundoandresdominguez/Documents/Programas/melimutanapigit/meli-exam-mutanapi/src/main/java/melimutant/api/mutantapi/AsyncConfiguration.java
 /Users/facundoandresdominguez/Documents/Programas/melimutanapigit/meli-exam-mutanapi/src/main/java/melimutant/api/mutantapi/services/StatsServiceImp.java
 /Users/facundoandresdominguez/Documents/Programas/melimutanapigit/meli-exam-mutanapi/src/main/java/melimutant/api/mutantapi/utils/UtilsAsync.java
-/Users/facundoandresdominguez/Documents/Programas/melimutanapigit/meli-exam-mutanapi/src/main/java/melimutant/api/mutantapi/interceptor/InterceptorConfig.java
 /Users/facundoandresdominguez/Documents/Programas/melimutanapigit/meli-exam-mutanapi/src/main/java/melimutant/api/mutantapi/services/MutantServiceImp.java
 /Users/facundoandresdominguez/Documents/Programas/melimutanapigit/meli-exam-mutanapi/src/main/java/melimutant/api/mutantapi/services/StatsService.java
 /Users/facundoandresdominguez/Documents/Programas/melimutanapigit/meli-exam-mutanapi/src/main/java/melimutant/api/mutantapi/services/PersistenceServiceImp.java
 /Users/facundoandresdominguez/Documents/Programas/melimutanapigit/meli-exam-mutanapi/src/main/java/melimutant/api/mutantapi/services/PersistenceService.java
 /Users/facundoandresdominguez/Documents/Programas/melimutanapigit/meli-exam-mutanapi/src/main/java/melimutant/api/mutantapi/controller/StatsDnaController.java
-/Users/facundoandresdominguez/Documents/Programas/melimutanapigit/meli-exam-mutanapi/src/main/java/melimutant/api/mutantapi/interceptor/PostInterceptor.java
 /Users/facundoandresdominguez/Documents/Programas/melimutanapigit/meli-exam-mutanapi/src/main/java/melimutant/api/mutantapi/MutantapiApplication.java
 /Users/facundoandresdominguez/Documents/Programas/melimutanapigit/meli-exam-mutanapi/src/main/java/melimutant/api/mutantapi/utils/Utils.java
 /Users/facundoandresdominguez/Documents/Programas/melimutanapigit/meli-exam-mutanapi/src/main/java/melimutant/api/mutantapi/services/MutantService.java

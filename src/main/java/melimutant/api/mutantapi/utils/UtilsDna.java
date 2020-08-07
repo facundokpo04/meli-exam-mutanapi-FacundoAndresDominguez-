@@ -27,21 +27,17 @@ public class UtilsDna {
             int pos = 0;
             Matcher matcher = r.matcher(str);
             while (matcher.find()) {
-                System.out.println("Genoma Encontrado: " + matcher.group());
                 countmacht++;
                 if (countmacht > 1) {
 
                     return countmacht;
 
                 }
-//                pos = matcher.end();
             }
         }
         return countmacht;
 
     }
-
-  
 
     public int countMachtVertical(char[][] matrix) {
         String result;
@@ -53,14 +49,15 @@ public class UtilsDna {
             for (int fila = 0; fila < matrix.length; fila++) {
                 result += matrix[fila][columna];
             }
-            countmacht += countMatcherDna(result, countmacht);
+            countmacht = countMatcherDna(result, countmacht);
+            stop = countmacht > 1;
 
         }
         return countmacht;
 
     }
 
-    public int countMachtDiagonalSup(char[][] matrix)  {
+    public int countMachtDiagonalSup(char[][] matrix) {
 
         String result;
         int count = 0;
@@ -83,10 +80,9 @@ public class UtilsDna {
 
     }
 
-    public int countMachtDiagonalInf(char[][] matrix)  {
+    public int countMachtDiagonalInf(char[][] matrix) {
 
         String result;
-        int count = 0;
         int countmacht = 0;
         boolean stop = false;
 
@@ -107,10 +103,9 @@ public class UtilsDna {
 
     }
 
-    public int countMachtDiagonalSupInv(char[][] matrix)  {
+    public int countMachtDiagonalSupInv(char[][] matrix) {
 
         String result;
-        int count = 0;
         int countmacht = 0;
         boolean stop = false;
 
@@ -129,7 +124,7 @@ public class UtilsDna {
 
     }
 
-    public int countMachtDiagonalInfInv(char[][] matrix)  {
+    public int countMachtDiagonalInfInv(char[][] matrix) {
 
         String result;
         int count = 0;
@@ -146,7 +141,6 @@ public class UtilsDna {
             countmacht = countMatcherDna(result, countmacht);
             stop = result.length() == 4 || countmacht > 1;
         }
-      
 
         return countmacht;
 
@@ -156,9 +150,7 @@ public class UtilsDna {
 
         Matcher matcher = r.matcher(adn);
         while (matcher.find()) {
-            System.out.println("Genoma Encontrado: " + matcher.group());
             count++;
-//            matcher.end();
         }
         return count;
     }

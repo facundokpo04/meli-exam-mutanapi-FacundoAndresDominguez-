@@ -6,6 +6,7 @@
 package melimutant.api.mutantapi.controller;
 
 
+import io.swagger.annotations.Api;
 import melimutant.api.mutantapi.services.StatsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
