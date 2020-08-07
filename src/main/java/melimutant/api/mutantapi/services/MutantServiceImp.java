@@ -46,7 +46,6 @@ public class MutantServiceImp implements MutantService {
 
     @Override
     public boolean isMutant(JSONObject body) throws JSONException {
-        long startDiag = 0l;
         String dna = utils.generateJsonString(body);
         String[] matrixDna = utils.generateJsonArray(body);
         char[][] matrixDnaChar = null;
@@ -87,20 +86,17 @@ public class MutantServiceImp implements MutantService {
             if (countDnaFinal > 1) {
                 result = true;
             }
-            long startSave = System.currentTimeMillis();
             persitenceServ.persistDnaResult(dna, result);
             return result;
         }
     }
 
     public boolean isMutantAsync(JSONObject body) throws JSONException {
-        long startDiag = 0l;
         String dna = utils.generateJsonString(body);
         String[] matrixDna = utils.generateJsonArray(body);
         char[][] matrixDnaChar = null;
         boolean result = false;
         int countDnaFinal = 0;
-        String mensaje;
         int existe = repository.findByDna(dna);
 
         if (existe == 1) {
@@ -110,10 +106,8 @@ public class MutantServiceImp implements MutantService {
 
         } else {
             countDnaFinal = utilsDna.countMachtHorizontal(matrixDna);
-            startDiag = System.currentTimeMillis();
             //diagonales y verticales todas juntas
             if (countDnaFinal < 2) {
-                startDiag = System.currentTimeMillis();
                 matrixDnaChar = utils.stringArrayToCharMatrix(matrixDna);
                 countDnaFinal += utilsDna.countMachtVertical(matrixDnaChar);
             } //verificamos las diagonales
@@ -138,7 +132,6 @@ public class MutantServiceImp implements MutantService {
                 result = true;
 
             }
-            long startSave = System.currentTimeMillis();
             try {
 
                 persitenceServ.persistDnaResult(dna, result);
