@@ -24,11 +24,13 @@ public class PersistenceServiceImp implements PersistenceService {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ResultDna.class);
 
-       @Autowired
     private ResultDnaRepository repository;
 
+    @Autowired
+    public PersistenceServiceImp(ResultDnaRepository dnaResultRepository) {
+        this.repository = dnaResultRepository;
+    }
 
-  
     @Async
     @Override
     public CompletableFuture<String> persistDnaResult(String dna, boolean isMutant) {
@@ -42,7 +44,6 @@ public class PersistenceServiceImp implements PersistenceService {
         } else {
             mensaje = "ADN ya existe";
         }
-  
 
         return CompletableFuture.completedFuture(mensaje);
     }

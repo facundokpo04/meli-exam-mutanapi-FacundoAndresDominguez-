@@ -15,7 +15,7 @@ import org.json.JSONObject;
  */
 public interface MutantService {
 
-    public boolean isMutant(JSONObject body) throws JSONException,InterruptedException;
+    public boolean isMutant(JSONObject body) throws JSONException;
 
     public boolean isMutantAsync(JSONObject body) throws JSONException;
 

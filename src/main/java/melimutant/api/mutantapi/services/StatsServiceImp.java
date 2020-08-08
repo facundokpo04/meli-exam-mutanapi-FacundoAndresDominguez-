@@ -36,7 +36,7 @@ public class StatsServiceImp implements StatsService{
             response.put("ratio", ratio);
         }
         else{
-            String humanCero = "No hay Ningun Humano";
+            String humanCero = "No se testearon Humanos";
             response.put("ratio",humanCero);
         }
 

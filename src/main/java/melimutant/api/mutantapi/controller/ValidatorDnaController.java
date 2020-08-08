@@ -5,15 +5,13 @@
  */
 package melimutant.api.mutantapi.controller;
 
+import io.swagger.annotations.ApiOperation;
 import melimutant.api.mutantapi.services.MutantService;
-import melimutant.api.mutantapi.services.StatsService;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -28,9 +26,7 @@ public class ValidatorDnaController {
     @Autowired
     private MutantService service;
     HttpHeaders headers = new HttpHeaders();
-
-
-    @PostMapping("/mutant")
+    @PostMapping("/mutantsync")
     public ResponseEntity<?> isMutant(@RequestBody String body) {
 
         JSONObject jsonBody = new JSONObject(body);
@@ -47,9 +43,8 @@ public class ValidatorDnaController {
         }
 
     }
-    
-    
-    @PostMapping("/mutantasync")
+
+    @PostMapping("/mutant")
     public ResponseEntity<?> isMutantAsync(@RequestBody String body) {
 
         JSONObject jsonBody = new JSONObject(body);
@@ -66,7 +61,5 @@ public class ValidatorDnaController {
         }
 
     }
-
-
 
 }
