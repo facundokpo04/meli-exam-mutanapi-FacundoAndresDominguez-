@@ -302,12 +302,12 @@ Instancias Maximas 100.
 La aplicación podría escalar horizontalmente sin muchos cambios ya que podriamos cambiar la configuracion para aumentar las instancias.
 #Parametros de escalado automatico
 
-  target_cpu_utilization: 0.65
-  min_instances: 10
-  max_instances: 100
-  min_pending_latency: 30ms
-  max_pending_latency: automatic
-  max_concurrent_requests: 50
+   ·  target_cpu_utilization: 0.65
+   ·  min_instances: 10
+   ·  max_instances: 100
+   ·  min_pending_latency: 30ms
+   ·  max_pending_latency: automatic
+   ·  max_concurrent_requests: 50
  
 
 La aplicación puede escalar verticalmente hasta procesadores con 6 hilos ya que tiene 5 procesos asíncronos :
