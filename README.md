@@ -1,5 +1,5 @@
 
-<h1>Desafío Tecni o Mercado Libre</h1>
+<h1>Desafío técnico Mercado Libre</h1>
 <h2>Facundo Andrés Domínguez</h2>
 
  
