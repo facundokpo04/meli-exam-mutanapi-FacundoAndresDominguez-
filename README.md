@@ -89,6 +89,12 @@ Herramientas y Tecnologías Utilizadas
    <td>Aplicación para realizar pruebas de comportamiento funcional y evaluar rendimiento
    </td>
   </tr>
+  <tr>
+   <td><strong>jUnit</strong>
+   </td>
+   <td>Bibliotecas de java para realizar test unitarios
+   </td>
+  </tr>
 </table>
 
 
