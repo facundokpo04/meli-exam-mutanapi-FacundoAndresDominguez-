@@ -140,7 +140,7 @@ Crear y configurar una base de datos PostgresSql con los siguentes datos
 
         ·   Contrasena: postgres
 
-Los valores puede ser modificados desde el archivo aplication.properties
+Los valores pueden ser modificados desde el archivo 'aplication.properties' que se encuentra en /src/main/resources/application.properties
 
  
 
@@ -297,12 +297,11 @@ Entorno Cloud
 
 Para el container de la app se configuró una estrategia de auto escalado automático.
 
-Teniendo en cuenta  cantidad de peticiones y otros parametro, hara que se creen mas instancias automáticas para responder .
+Teniendo en cuenta  la cantidad de peticiones y otros parámetros, hara que se creen mas instancias automáticas para responder.
 
 Instancias Minimas 10
 
 Instancias Maximas 100.
-
 
 
 La aplicación podría escalar horizontalmente sin muchos cambios ya que podriamos cambiar la configuracion para aumentar las instancias.
